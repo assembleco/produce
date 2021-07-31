@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_170353) do
+ActiveRecord::Schema.define(version: 2021_07_31_170702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2021_07_31_170353) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buyer_id"], name: "index_bank_cards_on_buyer_id"
+  end
+
+  create_table "bids", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "buyer_id", null: false
+    t.integer "amount", null: false
+    t.uuid "bank_card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bank_card_id"], name: "index_bids_on_bank_card_id"
+    t.index ["buyer_id"], name: "index_bids_on_buyer_id"
   end
 
   create_table "buyers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -52,5 +62,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_170353) do
   end
 
   add_foreign_key "bank_cards", "buyers"
+  add_foreign_key "bids", "bank_cards"
+  add_foreign_key "bids", "buyers"
   add_foreign_key "sellers", "companies"
 end
