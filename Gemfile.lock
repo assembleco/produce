@@ -80,6 +80,8 @@ GEM
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     erubi (1.10.0)
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.3)
     globalid (0.5.1)
       activesupport (>= 5.0)
@@ -211,6 +213,7 @@ DEPENDENCIES
   administrate
   bootsnap (>= 1.4.4)
   byebug
+  faker
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)

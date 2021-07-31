@@ -66,10 +66,7 @@ class BankCardDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how bank cards are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(bank_card)
-  #   "BankCard ##{bank_card.id}"
-  # end
+  def display_resource(bank_card)
+    bank_card.summary
+  end
 end

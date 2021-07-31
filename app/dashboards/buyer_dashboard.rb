@@ -65,8 +65,7 @@ class BuyerDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how buyers are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(buyer)
-  #   "Buyer ##{buyer.id}"
-  # end
+  def display_resource(buyer)
+    buyer.name
+  end
 end
