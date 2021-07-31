@@ -1,5 +1,7 @@
 require 'faker'
 
+Purchase.destroy_all
+
 Bid.destroy_all
 BankCard.destroy_all
 Buyer.destroy_all
@@ -44,4 +46,15 @@ end
       name: Faker::Name.name,
     )
   end
+end
+
+36.times do
+  buyer = Buyer.all.sample
+  company = Company.all.sample
+
+  buyer.purchases.create!(
+    company: company,
+    seller: company.sellers.sample,
+    price: Faker::Number.number(digits: [3,4].sample),
+  )
 end

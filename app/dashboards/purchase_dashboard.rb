@@ -26,7 +26,7 @@ class PurchaseDashboard < Administrate::BaseDashboard
     buyer
     company
     seller
-    id
+    price
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

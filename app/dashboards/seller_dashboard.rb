@@ -57,10 +57,7 @@ class SellerDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how sellers are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(seller)
-  #   "Seller ##{seller.id}"
-  # end
+  def display_resource(seller)
+    seller.name
+  end
 end
