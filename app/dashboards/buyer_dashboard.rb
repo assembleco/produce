@@ -12,6 +12,8 @@ class BuyerDashboard < Administrate::BaseDashboard
     name: Field::String,
     phone: Field::String,
     email: Field::String,
+    bids: Field::HasMany,
+    purchases: Field::HasMany,
     square_number: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -36,6 +38,8 @@ class BuyerDashboard < Administrate::BaseDashboard
     name
     phone
     email
+    bids
+    purchases
     square_number
     created_at
     updated_at
